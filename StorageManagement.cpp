@@ -23,36 +23,37 @@ vector<string> filter() {
     string word;
 
     while(getline(myFile, line)){
-        bool read=false, _read=false, First=false;
-        //cout << "Line Size: " << line.size() << endl;
+        bool _reading = false /*switch between reading word or not if there (") or (,)*/ , first = false;
 
         for(int i = 0; i < line.size(); i++){
-            if(line[i] == '"' and !First){
-                _read = true;
-                First = true;
-                continue;
-            }else if(line[i] == '"' and First){
-                _read = false;
-                First = false;
-                continue;
+            if(line[i] == '"' and !first){ // make _reading true if there (") in another char excpet first char
+                _reading = true;
+                first = true;
+                continue;//jump to next char
+            }else if(line[i] == '"' and first){ // make _reading false if there (") in first char
+                _reading = false;
+                first = false;
+                continue;//jump to next char
             }
 
 
 
-            if(_read){
+            if(_reading){
                 word += line[i];
             }else{
-                if(line[i] != '"' and line[i] != ',')
-                    read = true;
+                bool reading = false /*switch between reading word or not if there (") and (,)*/;
 
-                if(line[i] == ','){ //"ahmed,",abdo
+                if(line[i] != '"' and line[i] != ',') // make reading true unless there (") and (,)
+                    reading = true;
+
+                if(line[i] == ','){
                     words.push_back(word);
                     word = "";
                 }
 
-                if(read == true){
+                if(reading == true){
                     word += line[i];
-                    read = false;
+                    reading = false;
                     if(i+1 == line.size()){
                         words.push_back(word);
                         word = "";
