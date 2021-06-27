@@ -22,3 +22,4 @@ supermarket_without_oop.depend
 supermarket_without_oop.layout
 workspace.xml
 start.bat
+.gitignore
