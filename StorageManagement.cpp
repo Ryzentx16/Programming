@@ -13,12 +13,11 @@ using namespace std;
 #include "StorageManagement.h"
 #include "ConvertionsSystem.h"
 
-string filename = "Product-Price.csv";
-int val;
-ifstream myFile(filename);
-
 vector<string> filter() {
-    string line;
+    string filename = "Product-Price.csv";
+    int val;
+    ifstream myFile(filename);
+    string line="";
     vector<string> words;
     string word;
 
@@ -67,6 +66,8 @@ vector<string> filter() {
     return words;
 }
 
+//vector<string> words = filter();
+
 vector<tuple<int, string, double, int>> products(){
 
     vector<tuple<int, string, double, int>> output;
@@ -94,7 +95,6 @@ vector<string> getProductsName(){
     for(auto x : products()){
         names.push_back(get<1>(x));
     }
-
     return names;
 }
 
