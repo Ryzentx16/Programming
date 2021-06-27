@@ -62,15 +62,22 @@ void TheShow(const string Text) {
 
 // TODO (user#1#06/26/21): make design print Table
 void printMenu(int numberOfRaw, int numberOfColumns) {
-// FIXME (user#1#06/27/21): when it is commant, you can print numbers unless you can't
-    //vector<string> names = getProductsName();
+    vector<string> names = getProductsName();
     vector<double> prices = getProductsPrice();
     vector<int> quantities = getProductsQuantity();
 
+    /*for(auto x:names)
+        cout << x << endl;
+    cout << endl<<endl;
+
     for(auto x:prices)
         cout << x << endl;
+    cout << endl<<endl;
 
-    /*//cout << prices[0] << endl << endl;
+    for(auto x:quantities)
+        cout << x << endl;*/
+
+    //cout << prices[0] << endl << endl;
 
     int highestLen=0;
     for (auto name:names)
@@ -78,13 +85,11 @@ void printMenu(int numberOfRaw, int numberOfColumns) {
 
     cout << "Product" << setw(highestLen) << "Price" << setw(15) << "Quantity" << endl; // Header
 
-    for(auto name : names){
-        cout << left << name << right << endl;
-
+    for(int i = 0; i < names.size(); i++){
+        cout << left << names[i] << setw(highestLen) << right;
+        cout << numToStr(prices[i]) <<  endl;
     }
-    for(auto price : prices){
-        cout << numToStr(price) << endl;
-    }*/
+
     //cout << highestLen;
 }
 

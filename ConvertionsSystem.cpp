@@ -3,7 +3,6 @@
 //
 #include <iostream>
 #include <math.h>
-
 using namespace std;
 #include "ConvertionsSystem.h"
 
@@ -58,7 +57,6 @@ string numToStr(double num){
         result += num%10+'0';
         num /= 10;
     }
-
     for (int i = 0; i < result.size() / 2; i++)
         swap(result[i], result[result.size() - i - 1]);
 */

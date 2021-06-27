@@ -8,13 +8,12 @@ using namespace std;
 
 #include "ConvertionsSystem.h"
 #include "StorageManagement.h"
-#include "MainManuManagement.h"
+#include "MainMenuManagement.h"
 
 int main() {
     //initlize();
-    //printMenu(1,0);
-    //getProductsPrice();
     printMenu(1,0);
+    //getProductsPrice();
     return 0;
 }
 
