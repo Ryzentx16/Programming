@@ -81,13 +81,13 @@ vector<tuple<int, string, double, int>> products(){
     return output;
 }
 
-map<int, tuple<string, double, int>> storage;
+//map<int, tuple<string, double, int>> storage;
 
-map<int, tuple<string, double, int>> getStorage(){
-    for(auto tp : products()){
+vector<tuple<int, string, double, int>> getStorage(){
+    /*for(auto tp : products()){
         storage.insert({get<0>(tp), make_tuple(get<1>(tp), get<2>(tp), get<3>(tp))});
-    }
-    return storage;
+    }*/
+    return products();
 }
 
 vector<string> getProductsName(){
@@ -140,14 +140,6 @@ void printProducts(){
         cout << get<1>(x) << endl;
     }
 }
-
-/*void InsertProduct(string Name, double Price, int Quantity){
-    int Id=0;
-// TODO (user#1#06/25/21): Complete this funcation
-
-    storage.insert(make_pair(Id, make_tuple(Name, Price, Quantity)));
-}*/
-
 
 
 

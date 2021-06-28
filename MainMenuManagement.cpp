@@ -62,7 +62,6 @@ void TheShow(const string Text) {
   cout << '+' << RepeatChar(46, '-') << '+' << endl;
 }
 
-// TODO (user#1#06/26/21): make design print Table
 void printMenu(int numberOfRaw, int numberOfColumns) {
     vector<string> names = getProductsName();
     vector<double> prices = getProductsPrice();
@@ -105,32 +104,33 @@ void printMenu(int numberOfRaw, int numberOfColumns) {
 }
 
 int casher(){
-    map<int, tuple<string, double, int>> storage = getStorage();
-    vector<int> ides = getProductsId();
+    vector<tuple<int, string, double, int>> storage = getStorage();
+    int selectedId=0;
 
-    string selectedId="";
     cout << "Please Type Id of Product To Select it: ";
+    cin >> selectedId;
 
-    for(auto x : storage){
-        tuple<string, double, int> product = x.second;
-        int id = x.first;
-        cin >> selectedId;
-
-        for(auto i:ides){
-            if(strToInt(selectedId) == i){
-                cout << get<0>(product) << endl;
-                break;
-            }
+    for(auto i : storage){
+        if(selectedId == get<0>(i)){
+            cout << get<1>(i) << endl;
+            break;
         }
     }
+
+    char addToCart;
+    cout << "Add To Cart (y or n): ";
+    cin >> addToCart;
+
+// FIXME (user#1#06/28/21): how we do decress the quantity
+
 
     return 0;
 }
 
 int initlize(){
-    //TheShow("SuperMarket");
-    //Sleep(2000);
-    //printMenu(1,0);
+    TheShow("SuperMarket");
+    Sleep(2000);
+    printMenu(1,0);
     casher();
     return 0;
 }
