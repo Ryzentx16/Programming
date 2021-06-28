@@ -63,3 +63,15 @@ string numToStr(double num){
     return _trim(to_string(num));
 }
 
+string numToStr(int num){
+    /*double numlen = numLen(num)+1;
+    string result;
+    for(int i = numlen-2 ; i >= 0; i--){
+        result += num%10+'0';
+        num /= 10;
+    }
+    for (int i = 0; i < result.size() / 2; i++)
+        swap(result[i], result[result.size() - i - 1]);
+*/
+    return _trim(to_string(num));
+}

@@ -7,6 +7,8 @@
 #include <iomanip>
 #include <windows.h>
 #include <tuple>
+#include <map>
+#include <cmath>
 
 using namespace std;
 
@@ -65,6 +67,7 @@ void printMenu(int numberOfRaw, int numberOfColumns) {
     vector<string> names = getProductsName();
     vector<double> prices = getProductsPrice();
     vector<int> quantities = getProductsQuantity();
+    vector<int> ides = getProductsId();
 
     /*for(auto x:names)
         cout << x << endl;
@@ -83,22 +86,53 @@ void printMenu(int numberOfRaw, int numberOfColumns) {
     for (auto name:names)
         if(name.size() > highestLen) highestLen = name.size();
 
-    cout << "Product" << setw(highestLen) << "Price" << setw(15) << "Quantity" << endl; // Header
+    cout << "ID" << setw(10) << "Product" << setw(highestLen) << "Price" << setw(15) << "Quantity" << endl; // Header
 
     for(int i = 0; i < names.size(); i++){
-        cout << left << names[i] << setw(highestLen) << right;
-        cout << numToStr(prices[i]) <<  endl;
+        cout << left << ides[i] << right << setw(3+names[i].size());
+        cout << trim(names[i]) << setw(37-names[i].size());
+
+        if(numToStr(prices[i]).size() <= 3){
+           cout << numToStr(prices[i])+'0' << setw(13);
+        }else{
+           cout << numToStr(prices[i]) << setw(13);
+        }
+
+        cout<< numToStr(quantities[i]) << endl;
     }
 
     //cout << highestLen;
 }
 
+int casher(){
+    map<int, tuple<string, double, int>> storage = getStorage();
+    vector<int> ides = getProductsId();
+
+    string selectedId="";
+    cout << "Please Type Id of Product To Select it: ";
+
+    for(auto x : storage){
+        tuple<string, double, int> product = x.second;
+        int id = x.first;
+        cin >> selectedId;
+
+        for(auto i:ides){
+            if(strToInt(selectedId) == i){
+                cout << get<0>(product) << endl;
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
 
 int initlize(){
-  TheShow("SuperMarket");
-  Sleep(2250);
-  printMenu(1,0);
-  return 0;
+    //TheShow("SuperMarket");
+    //Sleep(2000);
+    //printMenu(1,0);
+    casher();
+    return 0;
 }
 
 

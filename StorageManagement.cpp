@@ -83,10 +83,11 @@ vector<tuple<int, string, double, int>> products(){
 
 map<int, tuple<string, double, int>> storage;
 
-void fillStorage(){
+map<int, tuple<string, double, int>> getStorage(){
     for(auto tp : products()){
         storage.insert({get<0>(tp), make_tuple(get<1>(tp), get<2>(tp), get<3>(tp))});
     }
+    return storage;
 }
 
 vector<string> getProductsName(){
@@ -116,6 +117,15 @@ vector<int> getProductsQuantity(){
         quantities.push_back(get<3>(x));
     }
     return quantities;
+}
+
+vector<int> getProductsId(){
+    vector<int> Ides;
+
+    for(auto x : products()){
+        Ides.push_back(get<0>(x));
+    }
+    return Ides;
 }
 
 void printProducts(){

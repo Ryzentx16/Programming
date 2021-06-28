@@ -11,8 +11,8 @@ using namespace std;
 #include "MainMenuManagement.h"
 
 int main() {
-    //initlize();
-    printMenu(1,0);
+    initlize();
+    //printMenu(1,0);
     //getProductsPrice();
     return 0;
 }
