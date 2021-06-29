@@ -9,11 +9,14 @@ using namespace std;
 #include "ConvertionsSystem.h"
 #include "StorageManagement.h"
 #include "MainMenuManagement.h"
+#include "CartManagement.h"
 
 int main() {
-    initlize();
+    //initlize();
     //printMenu(1,0);
     //getProductsPrice();
+    //pickNewCart();
+    checkCustomer("CustomerId125454.csv");
     return 0;
 }
 

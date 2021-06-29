@@ -1,7 +1,7 @@
 #ifndef SUPERMARKET_WITHOUT_OOP_MAINMANUMANAGEMENT_H
 #define SUPERMARKET_WITHOUT_OOP_MAINMANUMANAGEMENT_H
 
-//string trim(string str);
+string trim(string str);
 //string RepeatChar(int Times, char value);
 //string RepeatString(int Times, string value);
 //string RepeatString(int Times, string value);

@@ -110,16 +110,11 @@ int casher(){
     cout << "Please Type Id of Product To Select it: ";
     cin >> selectedId;
 
-    for(auto i : storage){
-        if(selectedId == get<0>(i)){
-            cout << get<1>(i) << endl;
-            break;
-        }
-    }
+    cout << get<0>(getProductNameById(selectedId));
 
     char addToCart;
-    cout << "Add To Cart (y or n): ";
-    cin >> addToCart;
+    //cout << "Add To Cart (y or n): ";
+    //cin >> addToCart;
 
 // FIXME (user#1#06/28/21): how we do decress the quantity
 

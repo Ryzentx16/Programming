@@ -128,6 +128,21 @@ vector<int> getProductsId(){
     return Ides;
 }
 
+tuple<string, double, int> getProductNameById(int id){
+    vector<tuple<int, string, double, int>> storage = getStorage();
+    tuple<string, double, int> quickProduct;
+
+    for(auto i : storage){
+        if(id == get<0>(i)){
+            //cout << get<1>(i) << endl;
+            quickProduct = make_tuple(get<1>(i), get<2>(i), get<3>(i));
+            break;
+        }
+    }
+
+    return quickProduct;
+}
+
 void printProducts(){
     //fillStorage();
     /*for(auto product : storage){
