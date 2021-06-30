@@ -15,8 +15,8 @@ int main() {
     //initlize();
     //printMenu(1,0);
     //getProductsPrice();
-    //pickNewCart();
-    checkCustomer("CustomerId125454.csv");
+    pickNewCart();
+    //isCustomerExist("CustomerId22.csv");
     return 0;
 }
 
